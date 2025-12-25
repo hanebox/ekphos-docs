@@ -1,16 +1,37 @@
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import './global.css';
-import { Inter } from 'next/font/google';
+import { JetBrains_Mono } from 'next/font/google';
+import type { ReactNode } from 'react';
+import type { Metadata } from 'next';
 
-const inter = Inter({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
+  variable: '--font-mono',
 });
 
-export default function Layout({ children }: LayoutProps<'/'>) {
+export const metadata: Metadata = {
+  title: {
+    default: 'Ekphos Docs',
+    template: '%s | Ekphos Docs',
+  },
+  description: 'Documentation for Ekphos - A lightweight, fast, terminal-based markdown research tool built with Rust',
+  icons: {
+    icon: '/favicon.png',
+  },
+};
+
+export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={inter.className} suppressHydrationWarning>
-      <body className="flex flex-col min-h-screen">
-        <RootProvider>{children}</RootProvider>
+    <html lang="en" className={`${jetbrainsMono.variable}`} suppressHydrationWarning>
+      <body className="flex flex-col min-h-screen font-mono">
+        <RootProvider
+          theme={{
+            defaultTheme: 'dark',
+            themes: ['dark'],
+          }}
+        >
+          {children}
+        </RootProvider>
       </body>
     </html>
   );

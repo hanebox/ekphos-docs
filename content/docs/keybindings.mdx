@@ -1,0 +1,163 @@
+---
+title: Keybindings
+description: Complete keyboard reference for ekphos
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+Ekphos uses vim-style keybindings throughout. Press `?` to view the help dialog.
+
+## Global
+
+| Key | Action |
+|-----|--------|
+| `j` / `k` | Navigate down/up |
+| `gg` | Go to first item |
+| `G` | Go to last item |
+| `Tab` | Next panel (Sidebar → Content → Outline) |
+| `Shift+Tab` | Previous panel |
+| `?` | Show help |
+| `q` | Quit |
+| `Ctrl+b` | Toggle sidebar |
+| `Ctrl+o` | Toggle outline |
+| `R` | Reload files |
+| `Ctrl+Shift+R` | Reload config and theme |
+
+## Sidebar
+
+| Key | Action |
+|-----|--------|
+| `n` | Create new note |
+| `N` | Create new folder |
+| `Enter` | Open note / Toggle folder |
+| `r` | Rename |
+| `d` | Delete |
+| `e` | Edit note |
+| `/` | Search notes |
+
+## Content View
+
+| Key | Action |
+|-----|--------|
+| `j` / `k` | Scroll down/up |
+| `gg` | Go to top |
+| `G` | Go to bottom |
+| `Space` | Toggle task / Open link / Toggle details |
+| `]` / `[` | Next/previous link (multi-link lines) |
+| `Enter` / `o` | Open image in viewer |
+| `Shift+J` / `Shift+K` | Toggle floating cursor mode |
+
+<Callout>
+**Floating cursor mode**: Cursor moves freely within the visible area. The view only scrolls when reaching edges.
+</Callout>
+
+## Edit Mode - Normal
+
+| Key | Action |
+|-----|--------|
+| `i` | Insert before cursor |
+| `a` | Insert after cursor |
+| `I` | Insert at line start |
+| `A` | Insert at line end |
+| `o` | New line below |
+| `O` | New line above |
+| `v` | Enter visual mode |
+| `h` / `l` | Move left/right |
+| `j` / `k` | Move down/up |
+| `w` / `b` | Move by word forward/backward |
+| `0` / `$` | Line start/end |
+| `gg` / `G` | File top/bottom |
+| `x` | Delete character |
+| `dd` | Delete line |
+| `dw` | Delete word forward |
+| `db` | Delete word backward |
+| `y` | Yank (copy) |
+| `p` | Paste |
+| `u` | Undo |
+| `Ctrl+r` | Redo |
+| `Ctrl+s` | Save and exit |
+| `Esc` | Exit (discard changes) |
+
+### Delete Commands
+
+Delete operations use a two-step confirmation:
+
+1. Press `d` - Title shows `NORMAL d-`
+2. Press target: `d` (line), `w` (word forward), `b` (word backward)
+3. Text highlights, title shows `NORMAL [DEL]`
+4. Press `d` to confirm, `Esc` to cancel
+
+## Edit Mode - Insert
+
+| Key | Action |
+|-----|--------|
+| `Esc` | Exit to normal mode |
+| `Ctrl+s` | Save and exit |
+| `[[` | Trigger wiki link autocomplete |
+
+### Wiki Link Autocomplete
+
+When the autocomplete popup is open:
+
+| Key | Action |
+|-----|--------|
+| `↑` / `↓` | Navigate suggestions |
+| `Enter` / `Tab` | Insert selected |
+| `Esc` | Close |
+| Type | Filter suggestions |
+
+## Edit Mode - Visual
+
+| Key | Action |
+|-----|--------|
+| `h` / `j` / `k` / `l` | Extend selection |
+| `w` / `b` | Extend by word |
+| `0` / `$` | Extend to line start/end |
+| `gg` / `G` | Extend to file top/bottom |
+| `y` | Yank selection |
+| `d` / `x` | Delete selection |
+| `Esc` | Cancel selection |
+| `Ctrl+s` | Save and exit |
+
+## Mouse
+
+| Action | Result |
+|--------|--------|
+| Click | Position cursor |
+| Drag | Select text (enters visual mode) |
+| Right-click | Context menu |
+| Drag to edge | Auto-scroll |
+
+**Context menu options**: Copy, Cut, Paste, Select All
+
+## Search Mode
+
+| Key | Action |
+|-----|--------|
+| Type | Filter notes |
+| `↓` / `j` / `Ctrl+n` | Next match |
+| `↑` / `k` / `Ctrl+p` | Previous match |
+| `Enter` | Select and close |
+| `Esc` | Cancel |
+
+**Border colors**:
+- Yellow: Typing
+- Green: Matches found
+- Red: No matches
+
+## Dialogs
+
+### Delete Confirmation
+
+| Key | Action |
+|-----|--------|
+| `y` / `Y` | Confirm |
+| `n` / `N` / `Esc` | Cancel |
+
+### Input Dialogs (Rename, Create)
+
+| Key | Action |
+|-----|--------|
+| `Enter` | Confirm |
+| `Esc` | Cancel |
+| `Backspace` | Delete character |

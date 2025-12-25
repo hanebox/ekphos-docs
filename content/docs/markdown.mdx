@@ -1,0 +1,178 @@
+---
+title: Markdown Features
+description: Supported markdown syntax and rendering
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+Ekphos supports standard markdown plus wiki links and other enhancements.
+
+## Headings
+
+All six heading levels are supported with distinct styling:
+
+```markdown
+# Heading 1    ◆ blue, bold, uppercase
+## Heading 2   ■ green, bold
+### Heading 3  ▸ yellow, bold
+#### Heading 4 › magenta, bold
+##### Heading 5   teal, bold
+###### Heading 6  subtle, italic
+```
+
+<Callout>
+Only H1-H3 appear in the outline panel for navigation.
+</Callout>
+
+## Text Formatting
+
+```markdown
+**bold text**
+*italic text*
+`inline code`
+> blockquote
+```
+
+## Lists
+
+### Unordered
+
+```markdown
+- Item one
+- Item two
+  - Nested item
+* Also works with asterisks
+```
+
+### Ordered
+
+```markdown
+1. First item
+2. Second item
+3. Third item
+```
+
+### Task Lists
+
+```markdown
+- [ ] Unchecked task
+- [x] Completed task
+```
+
+Tasks are interactive - press `Space` in content view to toggle.
+
+## Links
+
+### Markdown Links
+
+```markdown
+[Link text](https://example.com)
+```
+
+Press `Space` to open in browser. Use `]` and `[` to navigate between multiple links on the same line.
+
+### Wiki Links
+
+Obsidian-style linking between notes:
+
+```markdown
+[[note name]]
+[[folder/nested note]]
+```
+
+**Features**:
+- Valid links shown in cyan
+- Invalid links shown in red
+- Type `[[` in edit mode for autocomplete
+- Creates non-existent notes on navigation
+
+## Code Blocks
+
+Fenced code blocks with syntax highlighting:
+
+````markdown
+```rust
+fn main() {
+    println!("Hello, ekphos!");
+}
+```
+````
+
+### Supported Languages
+
+50+ languages via syntect:
+
+Rust, Python, JavaScript, TypeScript, Go, C, C++, Java, Ruby, PHP, Shell, SQL, HTML, CSS, JSON, YAML, and many more.
+
+## Tables
+
+```markdown
+| Header 1 | Header 2 |
+|----------|----------|
+| Cell 1   | Cell 2   |
+| Cell 3   | Cell 4   |
+```
+
+Tables render with proper borders and header styling.
+
+## Images
+
+```markdown
+![Alt text](path/to/image.png)
+![Remote](https://example.com/image.jpg)
+```
+
+**Supported formats**: PNG, JPEG, GIF, WebP, BMP
+
+**Features**:
+- Local and remote URLs
+- Inline preview in compatible terminals
+- Press `Enter` or `o` to open in system viewer
+
+### Compatible Terminals
+
+For inline image preview:
+- iTerm2 (macOS)
+- Kitty
+- WezTerm
+- Ghostty
+- Sixel-enabled terminals
+
+## Collapsible Sections
+
+HTML details/summary for expandable content:
+
+```html
+<details>
+<summary>Click to expand</summary>
+
+Hidden content here.
+
+</details>
+```
+
+Press `Space` to toggle in content view.
+
+## Horizontal Rules
+
+```markdown
+---
+***
+___
+```
+
+## Editor Syntax Highlighting
+
+In edit mode, real-time highlighting shows:
+
+| Element | Color |
+|---------|-------|
+| Headings | Level-based colors |
+| Bold/italic | Bright |
+| Inline code | Green |
+| Links | Cyan, underlined |
+| Wiki links (valid) | Cyan |
+| Wiki links (invalid) | Red |
+| Blockquotes | Cyan |
+| List markers | Yellow |
+| Task boxes | Cyan |

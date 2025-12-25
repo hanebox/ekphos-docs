@@ -1,0 +1,135 @@
+---
+title: Getting Started
+description: Install ekphos and create your first notes
+---
+
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+import { Callout } from 'fumadocs-ui/components/callout';
+
+## Installation
+
+<Tabs items={['Cargo', 'Make', 'Docker']}>
+  <Tab value="Cargo">
+    The recommended way to install ekphos:
+
+    ```bash
+    cargo install ekphos
+    ```
+
+    To update:
+    ```bash
+    cargo install ekphos
+    ```
+
+    To uninstall:
+    ```bash
+    cargo uninstall ekphos
+    ```
+  </Tab>
+
+  <Tab value="Make">
+    Clone and build from source:
+
+    ```bash
+    git clone https://github.com/hanebox/ekphos.git
+    cd ekphos
+    make
+    sudo make install
+    ```
+
+    To uninstall:
+    ```bash
+    sudo make uninstall
+    ```
+  </Tab>
+
+  <Tab value="Docker">
+    Run ekphos in a Docker container with SSH access:
+
+    ```bash
+    git clone https://github.com/hanebox/ekphos.git
+    cd ekphos
+    docker build -t ekphos-ssh .
+    docker compose up -d
+    ```
+
+    Connect via SSH:
+    ```bash
+    ssh ekphos@localhost
+    ```
+  </Tab>
+</Tabs>
+
+## First Run
+
+<Steps>
+  <Step>
+    ### Launch ekphos
+
+    ```bash
+    ekphos
+    ```
+
+    Or open a specific folder:
+    ```bash
+    ekphos ~/notes
+    ```
+  </Step>
+
+  <Step>
+    ### Create your first note
+
+    Press `n` in the sidebar to create a new note. Enter a name and press `Enter`.
+  </Step>
+
+  <Step>
+    ### Start editing
+
+    Press `e` to enter edit mode. Use vim keybindings to write your note.
+    Press `Ctrl+s` to save.
+  </Step>
+</Steps>
+
+## Interface Overview
+
+Ekphos has a three-panel layout:
+
+| Panel | Purpose | Toggle |
+|-------|---------|--------|
+| **Sidebar** (left) | File tree navigation | `Ctrl+b` |
+| **Content** (center) | Markdown preview/edit | - |
+| **Outline** (right) | Heading navigation | `Ctrl+o` |
+
+Use `Tab` to switch focus between panels.
+
+## Essential Keybindings
+
+| Key | Action |
+|-----|--------|
+| `n` | New note |
+| `N` | New folder |
+| `e` | Edit note |
+| `d` | Delete |
+| `/` | Search |
+| `?` | Help |
+| `q` | Quit |
+
+<Callout>
+Press `?` at any time to see the full keybindings reference.
+</Callout>
+
+## Configuration
+
+Ekphos stores configuration at `~/.config/ekphos/config.toml`. Notes are stored in `~/Documents/ekphos` by default.
+
+<Callout type="warn">
+After major updates, run `ekphos --reset` to reset configuration if you encounter issues.
+</Callout>
+
+## Next Steps
+
+- Learn all [keybindings](/docs/keybindings)
+- Customize your [configuration](/docs/configuration)
+- Explore [markdown features](/docs/markdown)
+- Create custom [themes](/docs/themes)

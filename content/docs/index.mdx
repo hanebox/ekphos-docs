@@ -1,13 +1,45 @@
 ---
-title: Hello World
-description: Your first document
+title: Ekphos
+description: A lightweight, fast, terminal-based markdown research tool built with Rust
 ---
 
-Welcome to the docs! You can start writing documents in `/content/docs`.
+import { Cards, Card } from 'fumadocs-ui/components/card';
+import { Callout } from 'fumadocs-ui/components/callout';
 
-## What is Next?
+**Ekphos** is an open-source, terminal-based markdown research tool inspired by Obsidian. Built with Rust for performance, it provides a fast and intuitive way to manage markdown notes directly from your terminal.
+
+![Ekphos screenshot](/ekphos-example.png)
+
+<Callout type="warn">
+Ekphos is in early development. Always update to the latest version with `cargo install ekphos`.
+</Callout>
+
+## Features
+
+- **Three-panel layout** - Sidebar, content view, and outline navigation
+- **Vim keybindings** - Full vim-style navigation and editing
+- **Wiki links** - Obsidian-style `[[note]]` linking with autocomplete
+- **Syntax highlighting** - 50+ languages supported in code blocks
+- **Inline images** - Preview images in compatible terminals
+- **Fast search** - Fuzzy search across all notes
+- **Customizable themes** - TOML-based theming system
+
+## Quick Install
+
+```bash
+cargo install ekphos
+```
+
+## Requirements
+
+- Rust 1.70+ (`rustup update` to upgrade)
+- For inline images: iTerm2, Kitty, WezTerm, Ghostty, or Sixel-compatible terminal
+
+## Get Started
 
 <Cards>
-  <Card title="Learn more about Next.js" href="https://nextjs.org/docs" />
-  <Card title="Learn more about Fumadocs" href="https://fumadocs.dev" />
+  <Card title="Getting Started" href="/docs/getting-started" description="Installation and first steps" />
+  <Card title="Keybindings" href="/docs/keybindings" description="Complete keyboard reference" />
+  <Card title="Configuration" href="/docs/configuration" description="Customize ekphos" />
+  <Card title="Markdown" href="/docs/markdown" description="Supported markdown features" />
 </Cards>

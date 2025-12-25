@@ -1,0 +1,197 @@
+---
+title: Themes
+description: Customize ekphos appearance with themes
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+Themes are TOML files stored in `~/.config/ekphos/themes/`. The default theme is `ekphos-dawn`.
+
+## Using a Theme
+
+Set the theme in your config:
+
+```toml title="config.toml"
+theme = "ekphos-dawn"
+```
+
+Reload with `Ctrl+Shift+R` or restart ekphos.
+
+## Creating a Theme
+
+Create a new `.toml` file in `~/.config/ekphos/themes/`:
+
+```toml title="~/.config/ekphos/themes/my-theme.toml"
+[base]
+background = "#1a1a24"
+background_secondary = "#24243a"
+foreground = "#c0caf5"
+muted = "#565f89"
+
+[accent]
+primary = "#7aa2f7"
+secondary = "#bb9af7"
+
+[semantic]
+error = "#f7768e"
+warning = "#e0af68"
+success = "#9ece6a"
+info = "#7dcfff"
+
+[ui]
+border = "#3b4261"
+border_focused = "#7aa2f7"
+selection = "#283457"
+cursor = "#c0caf5"
+```
+
+Then set `theme = "my-theme"` in your config.
+
+## Color Sections
+
+### Base Colors
+
+| Color | Usage |
+|-------|-------|
+| `background` | Main background |
+| `background_secondary` | Popups, code blocks |
+| `foreground` | Primary text |
+| `muted` | Secondary text, hints |
+
+### Accent Colors
+
+| Color | Usage |
+|-------|-------|
+| `primary` | Focused borders, headings |
+| `secondary` | Visual mode, secondary accent |
+
+### Semantic Colors
+
+| Color | Usage |
+|-------|-------|
+| `error` | Errors, invalid links |
+| `warning` | Warnings, selected items |
+| `success` | Success states, checkmarks |
+| `info` | Info messages, links |
+
+### UI Colors
+
+| Color | Usage |
+|-------|-------|
+| `border` | Unfocused borders |
+| `border_focused` | Focused borders |
+| `selection` | Text selection |
+| `cursor` | Cursor color |
+
+## Component Overrides
+
+Override specific UI components for fine-grained control:
+
+### Status Bar
+
+```toml
+[ui.statusbar]
+background = "#1a1a24"
+foreground = "#c0caf5"
+brand = "#7aa2f7"
+mode = "#565f89"
+separator = "#3b4261"
+```
+
+### Dialog
+
+```toml
+[ui.dialog]
+background = "#1a1a24"
+border = "#7aa2f7"
+title = "#7aa2f7"
+text = "#c0caf5"
+```
+
+### Sidebar
+
+```toml
+[ui.sidebar]
+background = "#1a1a24"
+item = "#c0caf5"
+item_selected = "#e0af68"
+folder = "#7dcfff"
+folder_expanded = "#7dcfff"
+```
+
+### Content
+
+```toml
+[ui.content]
+background = "#1a1a24"
+text = "#c0caf5"
+heading1 = "#7aa2f7"
+heading2 = "#9ece6a"
+heading3 = "#e0af68"
+heading4 = "#bb9af7"
+link = "#7dcfff"
+link_invalid = "#f7768e"
+code = "#9ece6a"
+code_background = "#24243a"
+blockquote = "#565f89"
+list_marker = "#bb9af7"
+```
+
+### Outline
+
+```toml
+[ui.outline]
+background = "#1a1a24"
+heading1 = "#7aa2f7"
+heading2 = "#9ece6a"
+heading3 = "#e0af68"
+heading4 = "#bb9af7"
+```
+
+<Callout>
+Component sections are optional. Missing values fall back to base colors, then to ekphos-dawn defaults.
+</Callout>
+
+## Full Theme Example
+
+```toml title="~/.config/ekphos/themes/tokyo-night.toml"
+[base]
+background = "#1a1b26"
+background_secondary = "#24283b"
+foreground = "#c0caf5"
+muted = "#565f89"
+
+[accent]
+primary = "#7aa2f7"
+secondary = "#bb9af7"
+
+[semantic]
+error = "#f7768e"
+warning = "#e0af68"
+success = "#9ece6a"
+info = "#7dcfff"
+
+[ui]
+border = "#3b4261"
+border_focused = "#7aa2f7"
+selection = "#283457"
+cursor = "#c0caf5"
+
+[ui.content]
+heading1 = "#7aa2f7"
+heading2 = "#9ece6a"
+heading3 = "#e0af68"
+heading4 = "#bb9af7"
+link = "#7dcfff"
+code = "#9ece6a"
+```
+
+## Reset Themes
+
+To restore default themes:
+
+```bash
+ekphos --reset
+```
+
+This resets both configuration and themes to defaults.

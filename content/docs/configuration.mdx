@@ -1,0 +1,125 @@
+---
+title: Configuration
+description: Configure ekphos settings and options
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { File, Folder, Files } from 'fumadocs-ui/components/files';
+
+Configuration is stored at `~/.config/ekphos/config.toml`. A default config is created on first run.
+
+## File Locations
+
+<Files>
+  <Folder name="~/.config/ekphos" defaultOpen>
+    <File name="config.toml" />
+    <Folder name="themes">
+      <File name="ekphos-dawn.toml" />
+      <File name="my-theme.toml" />
+    </Folder>
+  </Folder>
+</Files>
+
+## Main Settings
+
+```toml title="config.toml"
+# Directory where notes are stored
+notes_dir = "~/Documents/ekphos"
+
+# Show welcome dialog on startup
+welcome_shown = true
+
+# Theme name (without .toml extension)
+theme = "ekphos-dawn"
+
+# Show folders with no .md files
+show_empty_dir = true
+
+# Syntax highlighting theme for code blocks
+syntax_theme = "base16-ocean.dark"
+```
+
+### Options Reference
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `notes_dir` | string | `~/Documents/ekphos` | Notes storage directory |
+| `welcome_shown` | bool | `true` | Show welcome on startup |
+| `theme` | string | `ekphos-dawn` | Theme name |
+| `show_empty_dir` | bool | `true` | Show empty folders |
+| `syntax_theme` | string | `base16-ocean.dark` | Code highlighting theme |
+
+## Editor Settings
+
+```toml title="config.toml"
+[editor]
+# Enable soft line wrapping
+line_wrap = true
+
+# Tab width in spaces
+tab_width = 4
+
+# Left padding (columns)
+left_padding = 0
+
+# Right padding (columns)
+right_padding = 1
+```
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `line_wrap` | bool | `true` | Soft line wrapping |
+| `tab_width` | u16 | `4` | Tab display width |
+| `left_padding` | u16 | `0` | Left editor padding |
+| `right_padding` | u16 | `1` | Right editor padding |
+
+## Syntax Themes
+
+Available themes for code block highlighting:
+
+- `base16-ocean.dark` (default)
+- `base16-ocean.light`
+- `base16-eighties.dark`
+- `base16-mocha.dark`
+- `InspiredGitHub`
+- `Solarized (dark)`
+- `Solarized (light)`
+
+```toml
+syntax_theme = "base16-mocha.dark"
+```
+
+## CLI Arguments
+
+```bash
+# Open a specific folder or file
+ekphos ~/notes
+ekphos ~/notes/todo.md
+
+# Reset configuration to defaults
+ekphos --reset
+```
+
+<Callout type="warn">
+Use `ekphos --reset` after major updates if you experience issues. This resets config and themes to defaults.
+</Callout>
+
+## Example Configuration
+
+```toml title="config.toml"
+notes_dir = "~/Documents/notes"
+welcome_shown = false
+theme = "ekphos-dawn"
+show_empty_dir = false
+syntax_theme = "base16-mocha.dark"
+
+[editor]
+line_wrap = true
+tab_width = 2
+left_padding = 1
+right_padding = 1
+```
+
+## Reload Configuration
+
+Press `Ctrl+Shift+R` to reload config and theme without restarting ekphos.

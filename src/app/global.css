@@ -1,3 +1,211 @@
 @import 'tailwindcss';
 @import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
+
+:root {
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --background: 10 10 10;
+  --foreground: 224 224 224;
+  --muted: 112 112 112;
+  --muted-foreground: 160 160 160;
+  --popover: 20 20 20;
+  --popover-foreground: 224 224 224;
+  --card: 20 20 20;
+  --card-foreground: 224 224 224;
+  --border: 42 42 42;
+  --input: 42 42 42;
+  --primary: 122 162 247;
+  --primary-foreground: 10 10 10;
+  --secondary: 20 20 20;
+  --secondary-foreground: 224 224 224;
+  --accent: 122 162 247;
+  --accent-foreground: 10 10 10;
+  --ring: 122 162 247;
+
+  --fd-background: 10 10 10;
+  --fd-foreground: 224 224 224;
+  --fd-card: 20 20 20;
+  --fd-card-foreground: 224 224 224;
+  --fd-secondary: 20 20 20;
+  --fd-secondary-foreground: 224 224 224;
+  --fd-muted: 42 42 42;
+  --fd-muted-foreground: 160 160 160;
+  --fd-border: 42 42 42;
+  --fd-primary: 122 162 247;
+  --fd-primary-foreground: 10 10 10;
+  --fd-accent: 30 30 30;
+  --fd-accent-foreground: 224 224 224;
+  --fd-ring: 122 162 247;
+}
+
+.light, :root {
+  color-scheme: dark;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-mono);
+  background: #0a0a0a;
+  color: #e0e0e0;
+}
+
+/* Code blocks - single clean background */
+figure.shiki,
+figure[class*="shiki"],
+figure:has(pre) {
+  background: #141414 !important;
+  border-color: #2a2a2a !important;
+  box-shadow: none !important;
+}
+
+figure.shiki pre,
+figure[class*="shiki"] pre,
+figure pre {
+  background: transparent !important;
+  border: none !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+}
+
+pre {
+  background: #141414 !important;
+  box-shadow: none !important;
+}
+
+pre code,
+pre code span {
+  background: transparent !important;
+  font-family: var(--font-mono);
+}
+
+/* Inline code */
+:not(pre) > code {
+  background: #1e1e1e !important;
+  color: #9ece6a !important;
+  padding: 0.15rem 0.4rem !important;
+  border-radius: 0.25rem !important;
+  font-size: 0.875em !important;
+  font-family: var(--font-mono) !important;
+  border: none !important;
+}
+
+/* Sidebar */
+[data-sidebar] {
+  background: #0a0a0a !important;
+  border-color: #2a2a2a !important;
+}
+
+/* Nav */
+nav {
+  background: rgba(10, 10, 10, 0.9) !important;
+  backdrop-filter: blur(12px);
+  border-color: #2a2a2a !important;
+}
+
+/* Cards */
+.fd-card, [data-card] {
+  background: #141414 !important;
+  border-color: #2a2a2a !important;
+}
+
+/* Links */
+a:not([class]) {
+  color: #7aa2f7;
+}
+
+a:not([class]):hover {
+  color: #9cb8ff;
+}
+
+/* Tables */
+table {
+  border-color: #2a2a2a !important;
+}
+
+th {
+  background: #141414 !important;
+  border-color: #2a2a2a !important;
+}
+
+td {
+  border-color: #2a2a2a !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a3a;
+}
+
+/* Search dialog */
+[data-dialog] {
+  background: #141414 !important;
+  border-color: #2a2a2a !important;
+}
+
+/* TOC */
+[data-toc] a {
+  color: #707070;
+}
+
+[data-toc] a:hover,
+[data-toc] a[data-active] {
+  color: #7aa2f7;
+}
+
+/* Callouts */
+.fd-callout {
+  background: #141414 !important;
+  border-color: #2a2a2a !important;
+}
+
+/* Tabs */
+[role="tablist"] {
+  border-color: #2a2a2a !important;
+}
+
+[role="tab"][data-state="active"] {
+  color: #7aa2f7 !important;
+  border-color: #7aa2f7 !important;
+}
+
+/* Steps */
+.fd-steps {
+  border-color: #2a2a2a !important;
+}
+
+.fd-step::before {
+  background: #7aa2f7 !important;
+}
+
+/* Files */
+.fd-files {
+  background: #141414 !important;
+  border-color: #2a2a2a !important;
+}
+
+/* Copy button */
+button[aria-label*="Copy"] {
+  color: #707070 !important;
+}
+
+button[aria-label*="Copy"]:hover {
+  color: #7aa2f7 !important;
+}
