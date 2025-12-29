@@ -55,45 +55,165 @@ Ekphos uses vim-style keybindings throughout. Press `?` to view the help dialog.
 
 ## Edit Mode - Normal
 
+### Mode Changes
+
 | Key | Action |
 |-----|--------|
 | `i` | Insert before cursor |
 | `a` | Insert after cursor |
-| `I` | Insert at line start |
+| `I` | Insert at first non-blank |
 | `A` | Insert at line end |
 | `o` | New line below |
 | `O` | New line above |
-| `v` | Enter visual mode |
+| `v` | Visual mode |
+| `V` | Visual Line mode |
+| `Ctrl+v` | Visual Block mode |
+| `R` | Replace mode |
+| `:` | Command mode |
+
+### Movement
+
+| Key | Action |
+|-----|--------|
 | `h` / `l` | Move left/right |
 | `j` / `k` | Move down/up |
-| `w` / `b` | Move by word forward/backward |
-| `0` / `$` | Line start/end |
-| `gg` / `G` | File top/bottom |
-| `x` | Delete character |
-| `dd` | Delete line |
-| `dw` | Delete word forward |
-| `db` | Delete word backward |
-| `y` | Yank (copy) |
-| `p` | Paste |
+| `w` / `W` | Word/WORD forward |
+| `b` / `B` | Word/WORD backward |
+| `e` / `E` | Word/WORD end forward |
+| `ge` / `gE` | Word/WORD end backward |
+| `0` | Line start |
+| `^` | First non-blank |
+| `$` | Line end |
+| `gg` | File top |
+| `G` / `{n}G` | File bottom / Go to line n |
+| `{` / `}` | Paragraph backward/forward |
+| `H` / `M` / `L` | Screen top/middle/bottom |
+| `%` | Matching bracket |
+
+### Find Character
+
+| Key | Action |
+|-----|--------|
+| `f{char}` | Find char forward |
+| `F{char}` | Find char backward |
+| `t{char}` | Till char forward |
+| `T{char}` | Till char backward |
+| `;` | Repeat find |
+| `,` | Repeat find (reverse) |
+
+### Operators
+
+| Key | Action |
+|-----|--------|
+| `d{motion}` | Delete |
+| `c{motion}` | Change (delete + insert) |
+| `y{motion}` | Yank (copy) |
+| `>{motion}` | Indent |
+| `<{motion}` | Outdent |
+| `dd` / `cc` / `yy` | Operate on whole line |
+| `D` / `C` | Delete/change to end of line |
+
+### Single Actions
+
+| Key | Action |
+|-----|--------|
+| `x` / `X` | Delete char forward/backward |
+| `s` | Substitute char (delete + insert) |
+| `S` | Substitute line |
+| `r{char}` | Replace char |
+| `J` | Join lines |
+| `p` / `P` | Paste after/before |
 | `u` | Undo |
 | `Ctrl+r` | Redo |
+| `.` | Repeat last command |
+| `~` | Toggle case |
+
+### Scrolling
+
+| Key | Action |
+|-----|--------|
+| `Ctrl+u` / `Ctrl+d` | Half page up/down |
+| `Ctrl+b` / `Ctrl+f` | Full page up/down |
+| `zz` / `zt` / `zb` | Center/top/bottom cursor |
+
+### Macros
+
+| Key | Action |
+|-----|--------|
+| `q{a-z}` | Start recording macro to register |
+| `q` | Stop recording |
+| `@{a-z}` | Play macro from register |
+| `@@` | Repeat last macro |
+
+### Marks
+
+| Key | Action |
+|-----|--------|
+| `m{a-zA-Z}` | Set mark at cursor position |
+| `` `{a-zA-Z} `` | Jump to mark (exact position) |
+| `'{a-zA-Z}` | Jump to mark (first non-blank) |
+| ``` `` ``` / `''` | Jump to last jump position |
+| `` `. `` / `'.` | Jump to last change position |
+| `` `^ `` / `'^` | Jump to last insert position |
+
+### Other
+
+| Key | Action |
+|-----|--------|
 | `Ctrl+s` | Save and exit |
-| `Esc` | Exit (discard changes) |
+| `Esc` | Cancel / Reset state |
 
-### Delete Commands
+## Text Objects
 
-Delete operations use a two-step confirmation:
+Use with operators (`d`, `c`, `y`, `>`, `<`):
 
-1. Press `d` - Title shows `NORMAL d-`
-2. Press target: `d` (line), `w` (word forward), `b` (word backward)
-3. Text highlights, title shows `NORMAL [DEL]`
-4. Press `d` to confirm, `Esc` to cancel
+| Text Object | Description |
+|-------------|-------------|
+| `iw` / `aw` | Inner/around word |
+| `iW` / `aW` | Inner/around WORD |
+| `i"` / `a"` | Inner/around double quotes |
+| `i'` / `a'` | Inner/around single quotes |
+| `` i` `` / `` a` `` | Inner/around backticks |
+| `i(` / `a(` / `ib` / `ab` | Inner/around parentheses |
+| `i[` / `a[` | Inner/around brackets |
+| `i{` / `a{` / `iB` / `aB` | Inner/around braces |
+| `i<` / `a<` | Inner/around angle brackets |
+| `ip` / `ap` | Inner/around paragraph |
+
+**Examples:**
+- `diw` - Delete inner word
+- `ci"` - Change inside double quotes
+- `yap` - Yank around paragraph
+- `>ip` - Indent paragraph
+
+## Count Prefix
+
+Prefix any motion or operator with a number:
+- `5j` - Move down 5 lines
+- `3w` - Move forward 3 words
+- `2dd` - Delete 2 lines
+- `10G` - Go to line 10
+
+## Command Mode
+
+Press `:` to enter command mode.
+
+| Command | Action |
+|---------|--------|
+| `:w` | Save |
+| `:q` | Quit (exit edit mode) |
+| `:wq` | Save and quit |
+| `:q!` | Quit without saving |
+| `:{n}` | Go to line n |
+| `:%s/pat/rep/g` | Substitute all occurrences |
 
 ## Edit Mode - Insert
 
 | Key | Action |
 |-----|--------|
 | `Esc` | Exit to normal mode |
+| `Ctrl+w` | Delete word backward |
+| `Ctrl+u` | Delete to line start |
 | `Ctrl+s` | Save and exit |
 | `[[` | Trigger wiki link autocomplete |
 
@@ -189,3 +309,4 @@ Press `Ctrl+f` to search within the current note (works in both Normal and Edit 
 | `Enter` | Confirm |
 | `Esc` | Cancel |
 | `Backspace` | Delete character |
+
