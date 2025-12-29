@@ -20,6 +20,8 @@ Ekphos uses vim-style keybindings throughout. Press `?` to view the help dialog.
 | `q` | Quit |
 | `Ctrl+b` | Toggle sidebar |
 | `Ctrl+o` | Toggle outline |
+| `Ctrl+f` | Find in buffer (search current note) |
+| `z` | Toggle zen mode (hide both panels) |
 | `R` | Reload files |
 | `Ctrl+Shift+R` | Reload config and theme |
 
@@ -130,7 +132,9 @@ When the autocomplete popup is open:
 
 **Context menu options**: Copy, Cut, Paste, Select All
 
-## Search Mode
+## Sidebar Search
+
+Press `/` in the sidebar to search notes by filename.
 
 | Key | Action |
 |-----|--------|
@@ -142,6 +146,30 @@ When the autocomplete popup is open:
 
 **Border colors**:
 - Yellow: Typing
+- Green: Matches found
+- Red: No matches
+
+## Buffer Search
+
+Press `Ctrl+f` to search within the current note (works in both Normal and Edit modes).
+
+| Key | Action |
+|-----|--------|
+| Type | Search text (live results) |
+| `↓` / `Tab` / `Enter` / `Ctrl+n` | Jump to next match |
+| `↑` / `Shift+Tab` / `Ctrl+p` | Jump to previous match |
+| `Ctrl+c` | Toggle case sensitivity |
+| `Esc` | Close search |
+
+**Features**:
+- Search dialog appears in top-right corner
+- All matches are highlighted in the buffer
+- Current match has a distinct highlight color
+- Auto-scrolls to first match
+- Match counter shows progress (e.g., "3/15")
+
+**Border colors**:
+- Blue: Typing (no query yet)
 - Green: Matches found
 - Red: No matches
 
