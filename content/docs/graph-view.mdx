@@ -1,0 +1,81 @@
+---
+title: Graph View
+description: Visualize connections between your notes with wiki links
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+
+The Graph View provides a visual representation of your notes and their connections through wiki links. Press `Ctrl+g` to open the graph.
+
+## Overview
+
+The graph displays:
+- **Nodes**: Each note in your vault appears as a box with its title
+- **Edges**: Lines connecting notes that link to each other via `[[wiki links]]`
+- **Bidirectional links**: Shown in green when two notes link to each other
+- **Unidirectional links**: Shown in gray for one-way connections
+
+<Callout>
+The graph uses a hierarchical tree layout that automatically organizes notes based on their link relationships.
+</Callout>
+
+## Navigation
+
+| Key | Action |
+|-----|--------|
+| `h` / `l` | Select node left/right |
+| `j` / `k` | Select node down/up |
+| `gg` | Select first node |
+| `G` | Select last node |
+| `Enter` | Open selected note |
+| `Esc` | Close graph view |
+
+## Panning & Zoom
+
+| Key | Action |
+|-----|--------|
+| `H` | Pan left |
+| `J` | Pan down |
+| `K` | Pan up |
+| `L` | Pan right |
+| `+` / `=` | Zoom in |
+| `-` | Zoom out |
+| `0` | Reset view (zoom and position) |
+
+## Moving Nodes
+
+You can manually reposition nodes to customize your graph layout:
+
+| Key | Action |
+|-----|--------|
+| `Ctrl+h` | Move selected node left |
+| `Ctrl+j` | Move selected node down |
+| `Ctrl+k` | Move selected node up |
+| `Ctrl+l` | Move selected node right |
+
+## Mouse Controls
+
+| Action | Result |
+|--------|--------|
+| Click node | Select the node |
+| Drag node | Move the node |
+| Drag background | Pan the view |
+| Scroll up | Zoom in |
+| Scroll down | Zoom out |
+
+## Understanding the Layout
+
+The graph uses automatic hierarchical positioning:
+
+1. **Root notes**: Notes with no incoming links appear at the top
+2. **Child notes**: Notes linked from root notes appear on lower levels
+3. **Siblings**: Notes at the same depth are arranged horizontally
+
+The layout recalculates when you open the graph view. Any manual node movements are preserved until you close and reopen the graph.
+
+## Tips
+
+- Use wiki links (`[[note name]]`) to create connections between notes
+- Bidirectional links (green) indicate strong relationships between topics
+- The graph helps identify orphan notes (no connections) and hub notes (many connections)
+- Press `Enter` on any node to quickly jump to that note

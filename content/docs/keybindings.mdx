@@ -21,6 +21,7 @@ Ekphos uses vim-style keybindings throughout. Press `?` to view the help dialog.
 | `Ctrl+b` | Toggle sidebar |
 | `Ctrl+o` | Toggle outline |
 | `Ctrl+f` | Find in buffer (search current note) |
+| `Ctrl+g` | Open graph view |
 | `z` | Toggle zen mode (hide both panels) |
 | `R` | Reload files |
 | `Ctrl+Shift+R` | Reload config and theme |
@@ -156,6 +157,21 @@ Ekphos uses vim-style keybindings throughout. Press `?` to view the help dialog.
 | `` `. `` / `'.` | Jump to last change position |
 | `` `^ `` / `'^` | Jump to last insert position |
 
+### Search
+
+| Key | Action |
+|-----|--------|
+| `/` | Search forward |
+| `?` | Search backward |
+| `n` | Next match (in search direction) |
+| `N` | Previous match (opposite direction) |
+| `*` | Search word under cursor forward |
+| `#` | Search word under cursor backward |
+
+<Callout>
+After searching with `/` or `?`, use `n` to continue in the same direction and `N` to go in the opposite direction. The search pattern is preserved until you start a new search.
+</Callout>
+
 ### Other
 
 | Key | Action |
@@ -271,7 +287,7 @@ Press `/` in the sidebar to search notes by filename.
 
 ## Buffer Search
 
-Press `Ctrl+f` to search within the current note (works in both Normal and Edit modes).
+Press `Ctrl+f` to search within the current note (works in both Normal and Edit modes). In Edit mode, you can also use vim-style `/` (forward) or `?` (backward) to start a search.
 
 | Key | Action |
 |-----|--------|
@@ -280,6 +296,8 @@ Press `Ctrl+f` to search within the current note (works in both Normal and Edit 
 | `↑` / `Shift+Tab` / `Ctrl+p` | Jump to previous match |
 | `Ctrl+c` | Toggle case sensitivity |
 | `Esc` | Close search |
+
+After closing the search dialog, use `n` and `N` in Edit mode to continue navigating through matches.
 
 **Features**:
 - Search dialog appears in top-right corner
