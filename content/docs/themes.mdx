@@ -169,6 +169,36 @@ match_count = "#565f89"
 | `match_current` | Background for current match |
 | `match_count` | Match counter text (e.g., "3/15") |
 
+### Editor
+
+Customize markdown syntax highlighting in the editor:
+
+```toml
+[ui.editor]
+heading1 = "#7aa2f7"
+heading2 = "#9ece6a"
+heading3 = "#e0af68"
+heading4 = "#bb9af7"
+heading5 = "#7dcfff"
+heading6 = "#565f89"
+code = "#9ece6a"
+link = "#7dcfff"
+blockquote = "#565f89"
+list_marker = "#bb9af7"
+bold = "#e0af68"
+italic = "#7dcfff"
+```
+
+| Color | Usage |
+|-------|-------|
+| `heading1` - `heading6` | Heading colors by level (# to ######) |
+| `code` | Inline code and code blocks |
+| `link` | Markdown links `[text](url)` |
+| `blockquote` | Blockquote markers (>) |
+| `list_marker` | List bullets and numbers |
+| `bold` | Bold text (**text**) |
+| `italic` | Italic text (*text*) |
+
 <Callout>
 Component sections are optional. Missing values fall back to base colors, then to ekphos-dawn defaults.
 </Callout>
@@ -205,6 +235,18 @@ heading3 = "#e0af68"
 heading4 = "#bb9af7"
 link = "#7dcfff"
 code = "#9ece6a"
+
+[ui.editor]
+heading1 = "#7aa2f7"
+heading2 = "#9ece6a"
+heading3 = "#e0af68"
+heading4 = "#bb9af7"
+heading5 = "#7dcfff"
+heading6 = "#565f89"
+code = "#9ece6a"
+link = "#7dcfff"
+bold = "#e0af68"
+italic = "#7dcfff"
 ```
 
 ## Reset Themes
