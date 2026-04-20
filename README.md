@@ -2,7 +2,7 @@
 
 Documentation website for [ekphos](https://github.com/hanebox/ekphos) - a lightweight, fast, terminal-based markdown research tool built with Rust.
 
-**Live:** [docs.ekphos.xyz](https://docs.ekphos.xyz)
+**Live:** [Documentation](https://ekphos.netlify.app/docs)
 
 ## Development
 
