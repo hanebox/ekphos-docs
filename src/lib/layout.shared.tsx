@@ -12,18 +12,6 @@ export function baseOptions(): BaseLayoutProps {
         </div>
       ),
     },
-    links: [
-      {
-        text: "GitHub",
-        url: "https://github.com/hanebox/ekphos",
-        external: true,
-      },
-      {
-        text: "Website",
-        url: "https://ekphos.xyz",
-        external: true,
-      },
-    ],
     githubUrl: "https://github.com/hanebox/ekphos",
   };
 }
