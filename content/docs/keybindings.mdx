@@ -21,6 +21,8 @@ Ekphos uses vim-style keybindings throughout. Press `?` to view the help dialog.
 | `Ctrl+b`           | Toggle sidebar                                |
 | `Ctrl+o`           | Toggle outline                                |
 | `Ctrl+k`           | Quick open (search files and content)         |
+| `t`                | Open today's journal                          |
+| `Ctrl+t`           | Open theme selector                           |
 | `Ctrl+f`           | Find in buffer (search current note)          |
 | `Ctrl+g`           | Open graph view                               |
 | `Ctrl+z`           | Toggle zen mode (hide both panels)            |
@@ -122,7 +124,8 @@ Press `s` to cycle through sorting options. The current mode is displayed in the
 
 <Callout>
   **Floating cursor mode**: Cursor moves freely within the visible area. The
-  view only scrolls when reaching edges.
+  view only scrolls when reaching edges. Set `floating_cursor = true` in your
+  [config](/docs/configuration) to enable it by default.
 </Callout>
 
 ### Heading Folding
@@ -537,6 +540,29 @@ Content search runs in the background to keep the UI responsive. A "Searching...
 <Callout>
   When selecting a content search result, ekphos navigates to the note and scrolls to the matching line.
 </Callout>
+
+## Journal
+
+Press `t` to open today's journal note (`journal.<date>.md`), creating it from a dated template if it doesn't exist yet.
+
+| Key | Action               |
+| --- | -------------------- |
+| `t` | Open today's journal |
+
+See [Journal](/docs/journal) for details.
+
+## Theme Selector
+
+Press `Ctrl+t` to open the theme selector. Moving the selection previews each theme across the entire interface in real time.
+
+| Key                    | Action                                |
+| ---------------------- | ------------------------------------- |
+| `↑` / `↓` or `k` / `j` | Move selection (live preview)         |
+| `Ctrl+n` / `Ctrl+p`    | Move selection (live preview)         |
+| `Enter`                | Apply and save the selected theme     |
+| `Esc`                  | Cancel and restore the previous theme |
+
+The list shows official (bundled) themes first, then custom themes from `~/.config/ekphos/themes/`. See [Themes](/docs/themes) for details.
 
 ## Dialogs
 

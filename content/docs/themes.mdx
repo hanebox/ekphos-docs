@@ -5,11 +5,28 @@ description: Customize ekphos appearance with themes
 
 import { Callout } from 'fumadocs-ui/components/callout';
 
-Themes are TOML files stored in `~/.config/ekphos/themes/`. The default theme is `ekphos-dawn`.
+Themes are TOML files stored in `~/.config/ekphos/themes/`. ekphos ships with three official themes — `ekphos-dawn` (the default), `dracula`, and `kanagawa` — and you can add your own.
+
+## Theme Selector
+
+Press `Ctrl+t` to open the theme selector — an interactive modal that lists every available theme. As you move the selection, the **entire interface updates instantly**, so you can preview each theme live before committing to it.
+
+| Key                    | Action                                |
+| ---------------------- | ------------------------------------- |
+| `↑` / `↓` or `k` / `j` | Move selection (live preview)         |
+| `Ctrl+n` / `Ctrl+p`    | Move selection (live preview)         |
+| `Enter`                | Apply and save the selected theme     |
+| `Esc`                  | Cancel and restore the previous theme |
+
+Official themes bundled with ekphos are listed first and tagged `official`; any custom themes you've added to `~/.config/ekphos/themes/` follow, tagged `custom`. Confirming with `Enter` writes the choice to `theme` in your [config](/docs/configuration), so it persists across restarts.
+
+<Callout>
+Nothing is saved until you press `Enter`. Press `Esc` at any point to revert to the theme you started with.
+</Callout>
 
 ## Using a Theme
 
-Set the theme in your config:
+You can also set the theme manually in your config:
 
 ```toml title="config.toml"
 theme = "ekphos-dawn"

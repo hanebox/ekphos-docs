@@ -1,0 +1,68 @@
+---
+title: Journal
+description: Open or create today's daily note instantly
+---
+
+import { Callout } from "fumadocs-ui/components/callout";
+
+Journal mode gives you a frictionless daily note. Press `t` in normal mode to jump straight into today's entry — ekphos opens it if it already exists, or creates it from a small dated template if it doesn't.
+
+## Usage
+
+Press `t` from anywhere in normal mode (the sidebar, content, or outline panel):
+
+- If today's journal **already exists**, ekphos opens it.
+- If it **doesn't exist yet**, ekphos creates it and opens it.
+
+Either way you land in the note with the content panel focused, and a status message confirms what happened (`Created journal.2026-05-29.md` or `Opened journal.2026-05-29.md`).
+
+| Key | Action               |
+| --- | -------------------- |
+| `t` | Open today's journal |
+
+<Callout>
+  Journal mode is disabled in zen mode (`Ctrl+z`), matching note creation with
+  `n`.
+</Callout>
+
+## File Location and Naming
+
+Journal entries are plain markdown files created in your notes directory (`~/Documents/ekphos` by default), named after the current date:
+
+```
+journal.YYYY-MM-DD.md
+```
+
+For example, on May 29 2026 the file is `journal.2026-05-29.md`. Because each day gets its own file, pressing `t` tomorrow starts a fresh entry while leaving today's untouched — and pressing `t` again later the same day simply reopens it.
+
+<Callout>
+  The date is your **local** date, so the entry rolls over at local midnight —
+  not UTC.
+</Callout>
+
+## Entry Template
+
+A fresh journal entry starts with YAML frontmatter and a dated heading:
+
+```markdown
+---
+title: Journal — 2026-05-29
+tags: [journal]
+date: 2026-05-29
+---
+
+# 2026-05-29 · Friday
+```
+
+The `journal` tag groups every entry together when you browse or search by tag, and the `date` field is picked up by the [frontmatter](/docs/frontmatter) badges. From there, press `e` to start writing.
+
+<Callout>
+  Existing entries are never overwritten. Pressing `t` only writes the template
+  when today's file doesn't exist yet.
+</Callout>
+
+## Next Steps
+
+- See the full [keybindings reference](/docs/keybindings)
+- Learn how [frontmatter](/docs/frontmatter) tags and dates are rendered
+- Find past entries fast with [search](/docs/search)
