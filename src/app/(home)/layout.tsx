@@ -1,6 +1,13 @@
-import { HomeLayout } from 'fumadocs-ui/layouts/home';
-import { baseOptions } from '@/lib/layout.shared';
+import type { ReactNode } from 'react';
 
-export default function Layout({ children }: LayoutProps<'/'>) {
-  return <HomeLayout {...baseOptions()}>{children}</HomeLayout>;
+export default function Layout({ children }: { children: ReactNode }) {
+  return (
+    <>
+      <div className="bg-terminal-accent/10 px-4 py-2 text-center text-xs text-terminal-accent">
+        Ekphos is still in early stage, but growing fast. Stay tuned for awesome
+        updates!
+      </div>
+      {children}
+    </>
+  );
 }

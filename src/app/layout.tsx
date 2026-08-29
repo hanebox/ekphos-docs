@@ -6,15 +6,17 @@ import type { Metadata } from 'next';
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
-  variable: '--font-mono',
+  variable: '--font-jetbrains-mono',
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://ekphos.xyz'),
   title: {
-    default: 'Ekphos Docs',
-    template: '%s | Ekphos Docs',
+    default: 'Ekphos',
+    template: '%s | Ekphos',
   },
-  description: 'Documentation for Ekphos - A lightweight, fast, terminal-based markdown research tool built with Rust',
+  description:
+    'An open source, lightweight, fast, terminal-based markdown research tool written in Rust.',
   icons: {
     icon: '/favicon.png',
   },
@@ -22,8 +24,12 @@ export const metadata: Metadata = {
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${jetbrainsMono.variable}`} suppressHydrationWarning>
-      <body className="flex flex-col min-h-screen font-mono">
+    <html
+      lang="en"
+      className={jetbrainsMono.variable}
+      suppressHydrationWarning
+    >
+      <body className="flex min-h-screen flex-col font-mono">
         <RootProvider
           theme={{
             defaultTheme: 'dark',

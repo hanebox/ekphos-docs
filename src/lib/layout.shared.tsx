@@ -1,17 +1,28 @@
-import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
+import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
+import { getRepoInfo, GITHUB_URL } from '@/lib/github';
 
-export function baseOptions(): BaseLayoutProps {
+export async function baseOptions(): Promise<BaseLayoutProps> {
+  const { version } = await getRepoInfo();
+
   return {
     nav: {
       title: (
         <div className="flex items-center gap-2">
           <span className="font-semibold tracking-tight">ekphos</span>
-          <span className="rounded-md bg-muted px-1.5 py-0.5 text-xs font-medium text-muted-foreground">
-            v0.25.10
-          </span>
+          {version ? (
+            <span className="rounded-md bg-fd-muted px-1.5 py-0.5 text-xs font-medium text-fd-muted-foreground">
+              {version}
+            </span>
+          ) : null}
         </div>
       ),
     },
-    githubUrl: "https://github.com/hanebox/ekphos",
+    links: [
+      {
+        text: 'Docs',
+        url: '/docs',
+      },
+    ],
+    githubUrl: GITHUB_URL,
   };
 }
